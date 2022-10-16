@@ -1,3 +1,6 @@
+import heapq
+
+
 def getKth(lo: int, hi: int, k: int) -> int:
     """Сложность данной программы O(n*log(n)).
 
@@ -11,13 +14,13 @@ def getKth(lo: int, hi: int, k: int) -> int:
     """
     def Collatz(n: int) -> int:
         """Считает теорему коллатца.
-        
+
         Args:
             n (int): number whic we reduce to one.
 
         Returns:
             int: how many steps we needed.
-        """        
+        """
         count = 0
         while(n) > 1:
             if n % 2 == 0:
@@ -31,5 +34,6 @@ def getKth(lo: int, hi: int, k: int) -> int:
     # теореме Коллатца
     for i in range(lo, hi+1):
         lst_nums.append((i, Collatz(i)))
-        lst_nums = sorted(lst_nums, key=lambda x: x[1]) # сортируем по количеству шагов
-    return lst_nums[k-1][0]
+    # сортируем по количеству шагов
+    lst_nums = heapq.nsmallest(k, lst_nums, key=lambda x: x[1])
+    return lst_nums[-1][0]
