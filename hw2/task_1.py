@@ -10,7 +10,7 @@ class Solution:
             matrix (List[List[int]]): matrix where we search squares.
 
         Returns:
-            int: amount of squares in matrix.
+            int: the amount of squares in matrix.
         """
         for i in range(1, len(matrix)):
             for j in range(1, len(matrix[0])):

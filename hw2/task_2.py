@@ -1,13 +1,13 @@
 class Solution:
     
     def getMaximumGenerated(self, n: int) -> int:
-        """Сложность данной функции O(n+1)
+        """Сложность данной функции O(n+1).
 
         Args:
             n (int): list's length.
 
         Returns:
-            int: max element in this list.
+            int: the maximum element in this list.
         """        
         if not n:
             return n
